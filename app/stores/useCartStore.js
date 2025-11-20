@@ -28,3 +28,6 @@ export const useCartStore = defineStore('cart', {
     }
   }
 })
+
+
+//useCartStore.js: Quản lý trạng thái giỏ hàng (thêm, xóa, tính tổng...).

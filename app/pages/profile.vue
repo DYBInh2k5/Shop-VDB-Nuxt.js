@@ -43,3 +43,6 @@ const logout = async () => {
 </script>
 
 <style scoped></style>
+
+
+<!-- profile.vue: Trang hồ sơ người dùng với thông tin cơ bản và chức năng đăng xuất. -->

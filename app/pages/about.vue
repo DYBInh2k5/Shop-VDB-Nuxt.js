@@ -1,3 +1,5 @@
+
+
 <template>
   <div class="space-y-16">
     <!-- Header -->
@@ -121,5 +123,10 @@
 </template>
 
 <script setup>
+import useCounter from '../composables/useCounter'
 const { count, increment, decrement, reset } = useCounter()
 </script>
+
+
+
+<!-- about.vue: Trang giới thiệu. -->

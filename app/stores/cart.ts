@@ -23,3 +23,6 @@ export const useCartStore = defineStore('cart', {
     }
   }
 })
+
+
+// cart.ts: Cửa hàng Pinia để quản lý trạng thái giỏ hàng (thêm, xóa, tính tổng).

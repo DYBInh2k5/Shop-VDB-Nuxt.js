@@ -57,6 +57,8 @@
 </template>
 
 <script setup>
+
+import { useCartStore } from '~/stores/cart'
 import { ref } from 'vue'
 const cart = useCartStore()
 
@@ -99,3 +101,6 @@ const handleCheckout = async () => {
   await navigateTo({ path: '/order-success', query: { id: orderId, total: ('' + (form.value.total || 0) || cart.totalPrice) } })
 }
 </script>
+
+
+<!-- checkout.vue: Trang thanh toán. -->

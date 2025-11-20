@@ -99,9 +99,14 @@
 </template>
 
 <script setup>
+
+import useCounter from '../composables/useCounter'
 const { data: users, pending, error } = await useFetch(
   'https://jsonplaceholder.typicode.com/users'
 )
 
 const { count, increment, decrement, reset } = useCounter()
 </script>
+
+
+<!-- users.vue: Trang danh sách người dùng với trạng thái tải và bộ đếm demo. -->

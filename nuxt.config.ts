@@ -17,3 +17,4 @@ export default defineNuxtConfig({
   modules: ['@pinia/nuxt'],
 })
 
+//nuxt.config.ts: Cấu hình toàn bộ ứng dụng Nuxt (router, modules, tailwind, runtime config...).
