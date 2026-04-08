@@ -1,96 +1,42 @@
-<template>
-  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
-      <div class="flex justify-between items-center py-4 gap-6">
-        <!-- Logo -->
-        <NuxtLink to="/" class="flex items-center gap-3 group">
-          <div class="w-11 h-11 rounded-lg flex items-center justify-center text-white font-bold text-lg shadow-md" :style="{ background: 'linear-gradient(90deg,var(--brand-from),var(--brand-via))' }">
-            VDB
-          </div>
-          <span class="text-2xl font-bold heading-serif heading-gradient hidden md:inline" style="letter-spacing:0.02em;">VÕ DUY BÌNH</span>
-        </NuxtLink>
+﻿<template>
+  <header class="sticky top-0 z-50 border-b border-[color:var(--line)] bg-[rgba(251,249,244,0.82)] backdrop-blur-xl">
+    <div class="page-shell">
+      <div class="relative flex min-h-[72px] items-center justify-between gap-6 py-2">
+        <div class="flex items-center gap-10">
+          <NuxtLink to="/" class="heading-serif text-lg uppercase tracking-[0.35em] text-[color:var(--text)] sm:text-xl">
+            VÕ DUY BÌNH
+          </NuxtLink>
+          <nav class="hidden items-center gap-8 md:flex">
+            <NuxtLink v-for="item in navItems" :key="item.to" :to="item.to" class="text-[11px] uppercase tracking-[0.28em] text-[color:var(--text-soft)] transition hover:text-[color:var(--text)]" active-class="text-[color:var(--text)]">
+              {{ item.label }}
+            </NuxtLink>
+          </nav>
+        </div>
 
-        <!-- Navigation -->
-        <nav class="hidden md:flex items-center gap-8 ml-8">
-          <NuxtLink 
-            to="/" 
-            class="text-gray-700 font-semibold px-2 py-1 rounded transition duration-200 relative group hover:text-[var(--color-accent)]"
-          >
-            Trang chủ
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300" :style="{ backgroundColor: 'var(--color-accent)' }"></span>
-          </NuxtLink>
-          <NuxtLink 
-            to="/products" 
-            class="text-gray-700 font-semibold px-2 py-1 rounded transition duration-200 relative group hover:text-[var(--color-accent)]"
-          >
-            Sản phẩm
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300" :style="{ backgroundColor: 'var(--color-accent)' }"></span>
-          </NuxtLink>
-          <NuxtLink 
-            to="/users" 
-            class="text-gray-700 font-semibold px-2 py-1 rounded transition duration-200 relative group hover:text-[var(--color-accent)]"
-          >
-            Người dùng
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300" :style="{ backgroundColor: 'var(--color-accent)' }"></span>
-          </NuxtLink>
-          <NuxtLink 
-            to="/about" 
-            class="text-gray-700 font-semibold px-2 py-1 rounded transition duration-200 relative group hover:text-[var(--color-accent)]"
-          >
-            Về chúng tôi
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full transition-all duration-300" :style="{ backgroundColor: 'var(--color-accent)' }"></span>
-          </NuxtLink>
-        </nav>
-
-        <!-- Right side -->
-        <div class="flex items-center gap-4">
-          <!-- Cart Button -->
-          <NuxtLink 
-            to="/cart" 
-            class="relative flex items-center gap-2 bg-[var(--color-accent)] text-[var(--color-primary)] font-semibold py-2 px-4 rounded-lg transition duration-300 hover:shadow-lg hover:scale-105"
-            :style="{ boxShadow: '0 8px 24px rgba(0,0,0,0.08)' }"
-          >
-            <span class="text-lg">🛒</span>
-            <span class="hidden sm:inline">{{ cart.totalItems }}</span>
-            <span v-if="cart.totalItems > 0" class="absolute -top-1 -right-1 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center bg-red-500">
+        <div class="ml-auto flex items-center gap-3 sm:gap-4 text-[color:var(--text)]">
+          <button class="hidden items-center justify-center transition hover:text-[color:var(--primary)] md:inline-flex" aria-label="Search">
+            <span class="material-symbols-outlined text-[18px]">search</span>
+          </button>
+          <template v-if="user">
+            <NuxtLink to="/profile" class="hidden items-center gap-2 md:inline-flex">
+              <span class="flex h-8 w-8 items-center justify-center rounded-full border border-[color:var(--line)] bg-white/80 text-sm font-semibold text-[color:var(--text)]">
+                {{ user.name.charAt(0).toUpperCase() }}
+              </span>
+            </NuxtLink>
+            <button class="btn-ghost !px-4 !py-2" @click="logout">Logout</button>
+          </template>
+          <template v-else>
+            <NuxtLink to="/auth/login" class="hidden transition hover:text-[color:var(--primary)] md:inline-flex" aria-label="Account">
+              <span class="material-symbols-outlined text-[18px]">person</span>
+            </NuxtLink>
+            <NuxtLink to="/auth/register" class="btn-primary !px-4 !py-2">Join</NuxtLink>
+          </template>
+          <NuxtLink to="/cart" class="relative inline-flex items-center justify-center transition hover:text-[color:var(--primary)]" aria-label="Cart">
+            <span class="material-symbols-outlined text-[18px]">shopping_bag</span>
+            <span v-if="cart.totalItems > 0" class="absolute -right-2 -top-2 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-[color:var(--primary)] px-1 text-[10px] font-bold text-white">
               {{ cart.totalItems }}
             </span>
           </NuxtLink>
-
-          <!-- Auth -->
-          <template v-if="user">
-            <div class="hidden sm:flex items-center gap-3 border-l border-gray-200 pl-4">
-                <NuxtLink to="/profile" class="flex items-center gap-2">
-                  <div class="w-9 h-9 rounded-full flex items-center justify-center font-bold bg-[var(--color-accent)] text-[var(--color-primary)]">
-                    {{ user.name.charAt(0) }}
-                  </div>
-                  <span class="text-base font-semibold text-gray-800" :style="{ color: 'var(--color-primary)' }">{{ user.name }}</span>
-                </NuxtLink>
-                <button
-                  @click="logout"
-                  class="font-semibold py-1.5 px-4 rounded-lg transition text-sm bg-[var(--color-accent)] text-[var(--color-primary)] hover:bg-yellow-400"
-                >
-                  Logout
-                </button>
-              </div>
-          </template>
-
-          <template v-else>
-            <div class="hidden sm:flex items-center gap-2 border-l border-gray-200 pl-4">
-              <NuxtLink
-                to="/auth/login"
-                class="font-semibold py-1.5 px-4 rounded-lg transition text-sm border border-gray-300 text-[var(--color-primary)] bg-white hover:bg-gray-50"
-              >
-                Login
-              </NuxtLink>
-              <NuxtLink
-                to="/auth/register"
-                class="font-semibold py-1.5 px-4 rounded-lg transition text-sm bg-[var(--color-accent)] text-[var(--color-primary)] hover:bg-yellow-400"
-              >
-                Sign Up
-              </NuxtLink>
-            </div>
-          </template>
         </div>
       </div>
     </div>
@@ -104,7 +50,14 @@ import { useCartStore } from '~/stores/useCartStore'
 const cart = useCartStore()
 const { user, clearUser } = useUser()
 
-const logout = () => {
+const navItems = [
+  { label: 'Collection', to: '/products' },
+  { label: 'New Arrivals', to: '/products-async' },
+  { label: 'About', to: '/about' },
+]
+
+const logout = async () => {
   clearUser()
+  await navigateTo('/')
 }
 </script>

@@ -1,131 +1,72 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-red-50 via-red-100 to-red-50 py-12 px-4">
-    <div class="max-w-md mx-auto">
-      <!-- Card -->
-      <div class="bg-white rounded-2xl shadow-2xl p-8">
-        <!-- Logo -->
-        <div class="flex justify-center mb-8">
-          <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-700 rounded-full flex items-center justify-center text-white font-bold text-2xl">
-            VDB
-          </div>
+  <main class="grid min-h-[calc(100vh-140px)] overflow-hidden rounded-[0.75rem] border border-[color:var(--line)] bg-[color:var(--surface)] lg:grid-cols-2">
+    <section class="relative hidden lg:block">
+      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD54pl8QmB2_dInVS2RD8HH_Ws2dr3V3NacoqvSMYvbtHSRLZTQnLw1O_QVk_Xz_reNR-tLiMtrHioh6QbZMq3Wl6h-NrNPjv496ddJ7u98PXXfPsAfsas1PliWJS0Q1DEk6-g6m5lFXFiopeJ_E2OPia1BHf4k6XgTgNFW1YNdacxO1NF1UF_p8ap96ljC-Kui99pL8cTVddqX-iBnqOWvOpa6IyLgX3FIS2V7FUzmvPC-sDU44SYXB7sgfsIv4LW5rUjgnouWUiqS" class="absolute inset-0 h-full w-full object-cover" alt="Fashion" />
+      <div class="absolute inset-0 bg-black/15"></div>
+      <div class="relative z-10 flex h-full flex-col justify-between p-16 text-white">
+        <h1 class="heading-serif text-lg uppercase tracking-[0.35em]">VÕ DUY BÌNH</h1>
+        <div class="max-w-md">
+          <p class="heading-serif text-4xl leading-tight mb-6">Redefining modern tailoring through the lens of timeless elegance.</p>
+          <div class="h-px w-24 bg-white/40"></div>
         </div>
+      </div>
+    </section>
 
-        <!-- Title -->
-        <h1 class="text-3xl font-bold text-center text-gray-900 mb-2">Đăng Nhập</h1>
-        <p class="text-center text-gray-600 mb-8">Chào mừng quay lại VÕ DUY BÌNH</p>
-
-        <!-- Form -->
-        <form @submit.prevent="handleLogin" class="space-y-6">
-          <!-- Email -->
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
-            <input
-              v-model="email"
-              type="email"
-              placeholder="your@email.com"
-              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-600 focus:outline-none transition"
-              required
-            />
+    <section class="flex items-center justify-center p-8 md:p-24 bg-[color:var(--surface)]">
+      <div class="w-full max-w-md space-y-8">
+        <div class="text-center md:text-left">
+          <div class="md:hidden mb-12">
+            <h1 class="heading-serif text-2xl tracking-widest text-[color:var(--text)]">VÕ DUY BÌNH</h1>
           </div>
-
-          <!-- Password -->
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">Mật khẩu</label>
-            <input
-              v-model="password"
-              type="password"
-              placeholder="••••••••"
-              class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-red-600 focus:outline-none transition"
-              required
-            />
+          <h2 class="heading-serif text-3xl text-[color:var(--text)] mb-2">Welcome Back</h2>
+          <p class="text-[color:var(--text-soft)]">Enter your credentials to access your curated collection.</p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <button class="rounded-[0.75rem] bg-[color:var(--surface-muted)] px-4 py-3 text-[10px] font-semibold uppercase tracking-[0.22em] transition hover:bg-[color:var(--surface-strong)]">Google</button>
+          <button class="rounded-[0.75rem] bg-[color:var(--surface-muted)] px-4 py-3 text-[10px] font-semibold uppercase tracking-[0.22em] transition hover:bg-[color:var(--surface-strong)]">Facebook</button>
+        </div>
+        <div class="relative flex items-center py-4">
+          <div class="flex-grow border-t border-[color:var(--line)]"></div>
+          <span class="mx-4 flex-shrink text-[10px] uppercase tracking-[0.22em] text-[color:var(--text-soft)]">OR LOGIN WITH</span>
+          <div class="flex-grow border-t border-[color:var(--line)]"></div>
+        </div>
+        <form class="space-y-6" @submit.prevent="handleLogin">
+          <div class="space-y-1">
+            <label class="text-[10px] font-semibold uppercase tracking-[0.24em] text-[color:var(--text-soft)]" for="email">Email Address</label>
+            <input v-model="email" id="email" class="input-luxe" placeholder="name@example.com" type="email" required />
           </div>
-
-          <!-- Remember Me -->
-          <div class="flex items-center justify-between">
-            <label class="flex items-center">
-              <input type="checkbox" class="w-4 h-4 rounded border-gray-300" />
-              <span class="ml-2 text-sm text-gray-600">Nhớ mật khẩu</span>
-            </label>
-            <NuxtLink to="/forgot-password" class="text-sm text-red-600 hover:text-red-700 font-semibold">
-              Quên mật khẩu?
-            </NuxtLink>
+          <div class="space-y-1">
+            <div class="flex items-center justify-between">
+              <label class="text-[10px] font-semibold uppercase tracking-[0.24em] text-[color:var(--text-soft)]" for="password">Password</label>
+              <a class="text-[10px] uppercase tracking-[0.22em] text-[color:var(--primary)]" href="#">Forgot?</a>
+            </div>
+            <div class="relative">
+              <input v-model="password" id="password" class="input-luxe pr-12" placeholder="••••••••" type="password" required />
+              <button class="absolute right-4 top-1/2 -translate-y-1/2 text-[color:var(--text-soft)]" type="button"><span class="material-symbols-outlined text-xl">visibility</span></button>
+            </div>
           </div>
-
-          <!-- Login Button -->
-          <button
-            type="submit"
-            class="w-full btn-primary text-white font-bold py-3 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg"
-          >
-            Đăng Nhập
-          </button>
+          <div class="flex items-center gap-3 pt-2">
+            <input id="remember" class="h-5 w-5 rounded border-[color:var(--line)] text-[color:var(--primary)]" type="checkbox" />
+            <label class="text-sm text-[color:var(--text-soft)]" for="remember">Remember me on this device</label>
+          </div>
+          <button type="submit" class="btn-primary w-full py-4 text-sm">Sign In</button>
         </form>
-
-        <!-- Divider -->
-        <div class="relative my-8">
-          <div class="absolute inset-0 flex items-center">
-            <div class="w-full border-t-2 border-gray-300"></div>
-          </div>
-          <div class="relative flex justify-center text-sm">
-            <span class="px-2 bg-white text-gray-600">Hoặc</span>
-          </div>
-        </div>
-
-        <!-- Social Login -->
-        <div class="grid grid-cols-2 gap-4 mb-8">
-          <button class="flex items-center justify-center gap-2 border-2 border-gray-300 hover:border-red-600 py-3 rounded-lg transition font-semibold">
-            <span>f</span>
-            <span class="hidden sm:inline">Facebook</span>
-          </button>
-          <button class="flex items-center justify-center gap-2 border-2 border-gray-300 hover:border-red-600 py-3 rounded-lg transition font-semibold">
-            <span>G</span>
-            <span class="hidden sm:inline">Google</span>
-          </button>
-        </div>
-
-        <!-- Sign Up Link -->
-        <div class="text-center">
-          <p class="text-gray-600">Chưa có tài khoản?
-            <NuxtLink to="/register" class="text-red-600 hover:text-red-700 font-bold">
-              Đăng ký ngay
-            </NuxtLink>
-          </p>
-        </div>
+        <p class="text-center text-sm text-[color:var(--text-soft)]">Don't have an account? <NuxtLink to="/auth/register" class="font-bold text-[color:var(--primary)]">Create Account</NuxtLink></p>
+        <footer class="pt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 opacity-40 text-[10px] uppercase tracking-[0.22em] text-[color:var(--text-soft)]">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Contact</a>
+        </footer>
       </div>
-
-      <!-- Additional Info -->
-      <div class="mt-8 text-center text-gray-600">
-        <p class="text-sm">Bằng cách đăng nhập, bạn đồng ý với</p>
-        <div class="flex justify-center gap-4 text-sm mt-2">
-          <a href="#" class="text-red-600 hover:text-red-700">Điều khoản dịch vụ</a>
-          <span>•</span>
-          <a href="#" class="text-red-600 hover:text-red-700">Chính sách bảo mật</a>
-        </div>
-      </div>
-    </div>
-  </div>
+    </section>
+  </main>
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
+import { ref } from 'vue'
+import { useUser } from '~/composables/useUser'
+const { setUser } = useUser()
 const email = ref('')
 const password = ref('')
-
-const handleLogin = async () => {
-  if (!email.value || !password.value) {
-    alert('Vui lòng nhập email và mật khẩu')
-    return
-  }
-
-  // Giả lập đăng nhập thành công
-  alert('Đăng nhập thành công!')
-  
-  // Lưu thông tin vào composable useUser
-  const { setUser } = useUser()
-  setUser(email.value.split('@')[0], email.value)
-  
-  // Redirect về trang profile
-  await navigateTo('/profile')
-}
+async function handleLogin() { if (!email.value || !password.value) return; setUser(email.value.split('@')[0], email.value); await navigateTo('/profile') }
 </script>

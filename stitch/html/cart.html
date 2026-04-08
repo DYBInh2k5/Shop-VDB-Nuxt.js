@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-secondary-fixed": "#1c1b1b",
+                    "on-error": "#ffffff",
+                    "on-surface": "#1b1c19",
+                    "surface-bright": "#fbf9f4",
+                    "surface-dim": "#dbdad5",
+                    "error-container": "#ffdad6",
+                    "on-tertiary-fixed-variant": "#594325",
+                    "on-primary-fixed": "#410000",
+                    "inverse-on-surface": "#f2f1ec",
+                    "inverse-surface": "#30312e",
+                    "surface-container-low": "#f5f3ee",
+                    "surface": "#fbf9f4",
+                    "error": "#ba1a1a",
+                    "secondary-container": "#e2dfde",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "primary-fixed": "#ffdad4",
+                    "on-surface-variant": "#5a403c",
+                    "surface-variant": "#e4e2dd",
+                    "on-primary-container": "#ff907f",
+                    "tertiary-fixed-dim": "#e2c19b",
+                    "background": "#fbf9f4",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#b52619",
+                    "on-secondary-container": "#636262",
+                    "inverse-primary": "#ffb4a8",
+                    "outline": "#8e706b",
+                    "on-secondary": "#ffffff",
+                    "surface-container": "#f0eee9",
+                    "on-primary": "#ffffff",
+                    "tertiary-container": "#543e21",
+                    "on-tertiary": "#ffffff",
+                    "on-tertiary-container": "#c9a984",
+                    "surface-container-high": "#eae8e3",
+                    "on-primary-fixed-variant": "#920703",
+                    "outline-variant": "#e3beb8",
+                    "primary": "#610000",
+                    "tertiary": "#3c280d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-fixed": "#291801",
+                    "on-secondary-fixed-variant": "#474746",
+                    "surface-container-highest": "#e4e2dd",
+                    "tertiary-fixed": "#ffddb6",
+                    "secondary": "#5f5e5e",
+                    "primary-container": "#8b0000",
+                    "secondary-fixed": "#e5e2e1",
+                    "primary-fixed-dim": "#ffb4a8",
+                    "on-background": "#1b1c19"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3 { font-family: 'Noto Serif', serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar (Mapped from JSON) -->
+<nav class="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-8 py-6 w-full max-w-screen-2xl mx-auto">
+<div class="text-2xl font-serif tracking-widest text-stone-900 dark:text-stone-100">VÕ DUY BÌNH</div>
+<div class="hidden md:flex items-center space-x-12 font-serif text-sm tracking-[0.1em] uppercase">
+<a class="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors" href="#">Collection</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors" href="#">New Arrivals</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors" href="#">About</a>
+</div>
+<div class="flex items-center space-x-6">
+<button class="hover:opacity-80 transition-opacity duration-300">
+<span class="material-symbols-outlined text-stone-900 dark:text-stone-100">search</span>
+</button>
+<button class="hover:opacity-80 transition-opacity duration-300">
+<span class="material-symbols-outlined text-stone-900 dark:text-stone-100">person</span>
+</button>
+<button class="hover:opacity-80 transition-opacity duration-300 relative">
+<span class="material-symbols-outlined text-red-900 dark:text-red-500">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-4 h-4 flex items-center justify-center rounded-full">2</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-32 pb-24 px-8 max-w-screen-2xl mx-auto min-h-screen">
+<div class="mb-12">
+<span class="text-xs font-label uppercase tracking-widest text-outline mb-2 block">Your Selection</span>
+<h1 class="text-4xl md:text-5xl font-headline text-primary tracking-tight">Shopping Cart</h1>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+<!-- Items List -->
+<div class="lg:col-span-8 space-y-12">
+<!-- Cart Item 1 -->
+<div class="group flex flex-col md:flex-row gap-8 pb-12 transition-all duration-500">
+<div class="w-full md:w-48 aspect-[3/4] overflow-hidden rounded-xl bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close-up of a high-end tailored burgundy silk shirt with mother-of-pearl buttons in soft natural studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN2d_DLZI7gAefZmas0iyB9l33BmOBlqLMVWbyd3CyUAsdy4AqsFv-5TasfsUUYJbVRQCXiOSNoEKgeqRZFoGs_85yf2M-YX8gjQb1tFNTWxOJjpI8fO8fwIJQTWFSwckJMDjtBtlnhTbF8ooT2mkbJjymhBdjeTks6Iveh3i44jzI0NjSCWWvIPaJo1rCOPGnKYcFkVle_jYKv8tv-YI9uk1xIHLzUXI_2YgbAaICxIq7_A_1uxsFnhgBM2nW09mw_xzFVbgcmheN"/>
+</div>
+<div class="flex-1 flex flex-col justify-between py-2">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-headline text-on-surface mb-1">Tailored Silk Blouse</h3>
+<p class="text-sm font-label text-secondary mb-4">Item No. VDB-2024-089</p>
+<div class="space-y-1">
+<p class="text-sm text-on-surface-variant flex items-center gap-2">
+<span class="font-medium text-on-surface">Color:</span> Burgundy Wine
+                                    </p>
+<p class="text-sm text-on-surface-variant flex items-center gap-2">
+<span class="font-medium text-on-surface">Size:</span> M
+                                    </p>
+</div>
+</div>
+<p class="text-lg font-headline text-primary">2,450,000₫</p>
+</div>
+<div class="flex justify-between items-end mt-8">
+<div class="flex items-center bg-surface-container-low rounded-xl px-2 py-1">
+<button class="p-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="px-4 text-sm font-medium">1</span>
+<button class="p-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<button class="flex items-center gap-2 text-xs font-label uppercase tracking-wider text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+                                Remove
+                            </button>
+</div>
+</div>
+</div>
+<!-- Subtle Tonal Divider -->
+<div class="h-px w-full bg-surface-container-highest"></div>
+<!-- Cart Item 2 -->
+<div class="group flex flex-col md:flex-row gap-8 pb-12 transition-all duration-500">
+<div class="w-full md:w-48 aspect-[3/4] overflow-hidden rounded-xl bg-surface-container">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Minimalist architectural charcoal grey wool trousers hanging against a white wall with sharp artistic shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5AqFozMRlDVkxblqUffoprP2RTbEOizJYfmW1qRqrZXGmk0w_I_FRge_yJbxDFoGtnGJR6n2ZCDeCVt3NVYaWp05TjzM2AhtYTxljCaZBngggCosHLg9LKZkEaSfYuyWz8oAbT-qrC9lNybNcjjEQgApuvrd7MVKMLkxJ21YU2Zo-64feRZYaCD4IXUduTB3sTfJv4Gyi3H3po-cbDMZLOk9lF-ENDrjo20-2TyIK9itA5utGA-Ps61M9iPglYXnY8Et_fnsEbOiN"/>
+</div>
+<div class="flex-1 flex flex-col justify-between py-2">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-headline text-on-surface mb-1">Architectural Wool Trousers</h3>
+<p class="text-sm font-label text-secondary mb-4">Item No. VDB-2024-112</p>
+<div class="space-y-1">
+<p class="text-sm text-on-surface-variant flex items-center gap-2">
+<span class="font-medium text-on-surface">Color:</span> Deep Charcoal
+                                    </p>
+<p class="text-sm text-on-surface-variant flex items-center gap-2">
+<span class="font-medium text-on-surface">Size:</span> L
+                                    </p>
+</div>
+</div>
+<p class="text-lg font-headline text-primary">3,800,000₫</p>
+</div>
+<div class="flex justify-between items-end mt-8">
+<div class="flex items-center bg-surface-container-low rounded-xl px-2 py-1">
+<button class="p-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="px-4 text-sm font-medium">1</span>
+<button class="p-2 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+<button class="flex items-center gap-2 text-xs font-label uppercase tracking-wider text-outline hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg">delete</span>
+                                Remove
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sidebar Summary -->
+<aside class="lg:col-span-4 sticky top-32">
+<div class="bg-surface-container-low p-8 rounded-xl shadow-sm">
+<h2 class="text-xl font-headline text-on-surface mb-8">Order Summary</h2>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between text-sm">
+<span class="text-secondary">Subtotal</span>
+<span class="font-medium text-on-surface">6,250,000₫</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-secondary">Shipping</span>
+<span class="text-on-surface font-label uppercase text-[10px] tracking-widest bg-surface-container-highest px-2 py-0.5 rounded">Calculated at next step</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-secondary">Tax (VAT 8%)</span>
+<span class="font-medium text-on-surface">500,000₫</span>
+</div>
+<div class="pt-6 mt-6 border-t border-outline-variant/20">
+<div class="flex justify-between items-baseline">
+<span class="text-lg font-headline">Total</span>
+<span class="text-2xl font-headline text-primary tracking-tight">6,750,000₫</span>
+</div>
+</div>
+</div>
+<!-- Discount Code -->
+<div class="mb-8">
+<label class="block text-[10px] font-label uppercase tracking-[0.2em] text-outline mb-3">Discount Code</label>
+<div class="flex gap-2">
+<input class="flex-1 bg-surface-container-lowest border-none rounded-xl px-4 py-3 text-sm focus:ring-1 focus:ring-primary/20 placeholder:text-outline-variant" placeholder="Enter code" type="text"/>
+<button class="px-6 py-3 bg-surface-container-highest text-on-surface text-xs font-label uppercase tracking-widest rounded-xl hover:bg-secondary-container transition-colors">Apply</button>
+</div>
+</div>
+<!-- Checkout Button -->
+<button class="w-full py-5 bg-primary text-on-primary rounded-xl font-label uppercase tracking-[0.2em] text-xs font-bold shadow-lg shadow-primary/20 hover:bg-primary-container hover:-translate-y-1 transition-all duration-300">
+                        Tiến hành thanh toán
+                    </button>
+<div class="mt-8 flex flex-col gap-4">
+<div class="flex items-center gap-3 text-xs text-secondary">
+<span class="material-symbols-outlined text-lg">verified_user</span>
+                            Secure encrypted checkout
+                        </div>
+<div class="flex items-center gap-3 text-xs text-secondary">
+<span class="material-symbols-outlined text-lg">local_shipping</span>
+                            Free shipping on orders over 10,000,000₫
+                        </div>
+</div>
+</div>
+<a class="mt-8 flex items-center justify-center gap-2 text-xs font-label uppercase tracking-[0.2em] text-outline hover:text-primary transition-colors py-4" href="#">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+                    Quay lại mua sắm
+                </a>
+</aside>
+</div>
+<!-- Optional: Empty State (Suppressed by default as items are present) -->
+<div class="hidden flex-col items-center justify-center py-40 text-center">
+<span class="material-symbols-outlined text-6xl text-surface-container-highest mb-6" style="font-variation-settings: 'wght' 100;">shopping_bag</span>
+<h2 class="text-3xl font-headline text-on-surface mb-4">Your bag is currently empty</h2>
+<p class="text-secondary max-w-xs mb-10 leading-relaxed">It looks like you haven't made your choice yet. Explore our latest collections to find something exceptional.</p>
+<button class="px-10 py-4 bg-primary text-on-primary rounded-xl font-label uppercase tracking-widest text-xs hover:bg-primary-container transition-all">
+                Quay lại mua sắm
+            </button>
+</div>
+</main>
+<!-- Footer (Mapped from JSON) -->
+<footer class="w-full border-t border-stone-200/20 bg-stone-100 dark:bg-stone-900 mt-20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 w-full max-w-screen-2xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-xl font-serif tracking-widest text-stone-900 dark:text-stone-100 mb-4">VÕ DUY BÌNH</div>
+<p class="font-sans text-xs tracking-wider text-stone-500 dark:text-stone-400 max-w-xs leading-loose">
+                    Curating high-end essentials for the modern wardrobe with a focus on editorial aesthetics and structural integrity.
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-sans text-xs font-bold tracking-widest text-stone-900 dark:text-stone-100 uppercase">Shop</h4>
+<div class="flex flex-col gap-2 font-sans text-xs tracking-wider">
+<a class="text-stone-500 dark:text-stone-400 hover:text-red-900 dark:hover:text-red-400 transition-colors" href="#">Collection</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-red-900 dark:hover:text-red-400 transition-colors" href="#">New Arrivals</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-red-900 dark:hover:text-red-400 transition-colors" href="#">About</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-sans text-xs font-bold tracking-widest text-stone-900 dark:text-stone-100 uppercase">Support</h4>
+<div class="flex flex-col gap-2 font-sans text-xs tracking-wider">
+<a class="text-stone-500 dark:text-stone-400 hover:text-red-900 dark:hover:text-red-400 transition-colors" href="#">Contact</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-red-900 dark:hover:text-red-400 transition-colors" href="#">Shipping</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-red-900 dark:hover:text-red-400 transition-colors" href="#">Returns</a>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-sans text-xs font-bold tracking-widest text-stone-900 dark:text-stone-100 uppercase">Legal</h4>
+<div class="flex flex-col gap-2 font-sans text-xs tracking-wider">
+<a class="text-stone-500 dark:text-stone-400 hover:text-red-900 dark:hover:text-red-400 transition-colors" href="#">Privacy Policy</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-red-900 dark:hover:text-red-400 transition-colors" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+<div class="px-12 pb-10 text-center">
+<span class="font-sans text-[10px] tracking-widest text-stone-400 dark:text-stone-600">© 2024 VÕ DUY BÌNH. ALL RIGHTS RESERVED.</span>
+</div>
+</footer>
+</body></html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout - VÕ DUY BÌNH</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-secondary-fixed": "#1c1b1b",
+                "on-error": "#ffffff",
+                "on-surface": "#1b1c19",
+                "surface-bright": "#fbf9f4",
+                "surface-dim": "#dbdad5",
+                "error-container": "#ffdad6",
+                "on-tertiary-fixed-variant": "#594325",
+                "on-primary-fixed": "#410000",
+                "inverse-on-surface": "#f2f1ec",
+                "inverse-surface": "#30312e",
+                "surface-container-low": "#f5f3ee",
+                "surface": "#fbf9f4",
+                "error": "#ba1a1a",
+                "secondary-container": "#e2dfde",
+                "secondary-fixed-dim": "#c8c6c5",
+                "primary-fixed": "#ffdad4",
+                "on-surface-variant": "#5a403c",
+                "surface-variant": "#e4e2dd",
+                "on-primary-container": "#ff907f",
+                "tertiary-fixed-dim": "#e2c19b",
+                "background": "#fbf9f4",
+                "on-error-container": "#93000a",
+                "surface-tint": "#b52619",
+                "on-secondary-container": "#636262",
+                "inverse-primary": "#ffb4a8",
+                "outline": "#8e706b",
+                "on-secondary": "#ffffff",
+                "surface-container": "#f0eee9",
+                "on-primary": "#ffffff",
+                "tertiary-container": "#543e21",
+                "on-tertiary": "#ffffff",
+                "on-tertiary-container": "#c9a984",
+                "surface-container-high": "#eae8e3",
+                "on-primary-fixed-variant": "#920703",
+                "outline-variant": "#e3beb8",
+                "primary": "#610000",
+                "tertiary": "#3c280d",
+                "surface-container-lowest": "#ffffff",
+                "on-tertiary-fixed": "#291801",
+                "on-secondary-fixed-variant": "#474746",
+                "surface-container-highest": "#e4e2dd",
+                "tertiary-fixed": "#ffddb6",
+                "secondary": "#5f5e5e",
+                "primary-container": "#8b0000",
+                "secondary-fixed": "#e5e2e1",
+                "primary-fixed-dim": "#ffb4a8",
+                "on-background": "#1b1c19"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Noto Serif"],
+                "body": ["Manrope"],
+                "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3, .font-serif { font-family: 'Noto Serif', serif; }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-md shadow-sm dark:shadow-none">
+<nav class="flex justify-between items-center px-8 py-6 w-full max-w-screen-2xl mx-auto">
+<div class="text-2xl font-serif tracking-widest text-stone-900 dark:text-stone-100">
+                VÕ DUY BÌNH
+            </div>
+<div class="hidden md:flex items-center gap-12 font-serif text-sm tracking-[0.1em] uppercase">
+<a class="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors" href="#">Collection</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors" href="#">New Arrivals</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors" href="#">About</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="hover:opacity-80 transition-opacity duration-300">
+<span class="material-symbols-outlined text-stone-900 dark:text-stone-100">search</span>
+</button>
+<button class="hover:opacity-80 transition-opacity duration-300">
+<span class="material-symbols-outlined text-stone-900 dark:text-stone-100">person</span>
+</button>
+<button class="hover:opacity-80 transition-opacity duration-300 relative">
+<span class="material-symbols-outlined text-stone-900 dark:text-stone-100">shopping_bag</span>
+<span class="absolute -top-1 -right-1 bg-primary text-on-primary text-[10px] w-4 h-4 flex items-center justify-center rounded-full">2</span>
+</button>
+</div>
+</nav>
+</header>
+<main class="pt-32 pb-24 px-6 md:px-12 max-w-7xl mx-auto">
+<div class="flex flex-col lg:flex-row gap-16">
+<!-- Checkout Forms Column -->
+<div class="flex-grow space-y-12">
+<div>
+<h1 class="text-4xl md:text-5xl font-serif tracking-tight mb-4">Checkout</h1>
+<p class="text-on-surface-variant font-label text-sm uppercase tracking-widest">Complete your bespoke order</p>
+</div>
+<!-- Shipping Information -->
+<section class="space-y-8">
+<div class="flex items-center gap-4">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold">1</span>
+<h2 class="text-2xl font-serif">Shipping Information</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-label uppercase tracking-widest text-on-surface-variant">First Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-1 focus:ring-primary/20 transition-all outline-none" placeholder="Enter first name" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Last Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-1 focus:ring-primary/20 transition-all outline-none" placeholder="Enter last name" type="text"/>
+</div>
+<div class="md:col-span-2 space-y-2">
+<label class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Address</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-1 focus:ring-primary/20 transition-all outline-none" placeholder="Street address, apartment, suite" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-label uppercase tracking-widest text-on-surface-variant">City</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-1 focus:ring-primary/20 transition-all outline-none" placeholder="City" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Postal Code</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-3 focus:ring-1 focus:ring-primary/20 transition-all outline-none" placeholder="ZIP code" type="text"/>
+</div>
+</div>
+</section>
+<!-- Delivery Method -->
+<section class="space-y-8">
+<div class="flex items-center gap-4">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold">2</span>
+<h2 class="text-2xl font-serif">Delivery Method</h2>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<label class="flex items-center justify-between p-6 bg-surface-container-low rounded-xl cursor-pointer hover:bg-surface-container transition-colors group">
+<div class="flex items-center gap-4">
+<input checked="" class="w-4 h-4 text-primary focus:ring-primary border-outline-variant" name="delivery" type="radio"/>
+<div>
+<p class="font-medium">Standard Shipping</p>
+<p class="text-xs text-on-surface-variant">3-5 business days</p>
+</div>
+</div>
+<span class="font-serif">$12.00</span>
+</label>
+<label class="flex items-center justify-between p-6 bg-surface-container-low rounded-xl cursor-pointer hover:bg-surface-container transition-colors group">
+<div class="flex items-center gap-4">
+<input class="w-4 h-4 text-primary focus:ring-primary border-outline-variant" name="delivery" type="radio"/>
+<div>
+<p class="font-medium">Express Courier</p>
+<p class="text-xs text-on-surface-variant">1-2 business days</p>
+</div>
+</div>
+<span class="font-serif">$28.00</span>
+</label>
+</div>
+</section>
+<!-- Payment Method -->
+<section class="space-y-8">
+<div class="flex items-center gap-4">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold">3</span>
+<h2 class="text-2xl font-serif">Payment Method</h2>
+</div>
+<div class="space-y-6">
+<div class="grid grid-cols-3 gap-4">
+<button class="flex flex-col items-center justify-center gap-3 p-6 bg-surface-container-lowest border border-primary/20 rounded-xl transition-all">
+<span class="material-symbols-outlined">credit_card</span>
+<span class="text-[10px] font-label uppercase tracking-wider">Credit Card</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-3 p-6 bg-surface-container-low hover:bg-surface-container rounded-xl transition-all">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="text-[10px] font-label uppercase tracking-wider">Bank Transfer</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-3 p-6 bg-surface-container-low hover:bg-surface-container rounded-xl transition-all">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-[10px] font-label uppercase tracking-wider">COD</span>
+</button>
+</div>
+<div class="p-8 bg-surface-container-low rounded-xl space-y-6">
+<div class="space-y-2">
+<label class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Card Number</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-xl px-4 py-3 focus:ring-1 focus:ring-primary/20 transition-all outline-none" placeholder="0000 0000 0000 0000" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-label uppercase tracking-widest text-on-surface-variant">Expiry Date</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-xl px-4 py-3 focus:ring-1 focus:ring-primary/20 transition-all outline-none" placeholder="MM / YY" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-label uppercase tracking-widest text-on-surface-variant">CVV</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-xl px-4 py-3 focus:ring-1 focus:ring-primary/20 transition-all outline-none" placeholder="123" type="text"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="pt-6">
+<button class="w-full bg-primary text-on-primary py-5 rounded-xl font-serif text-lg tracking-wide hover:bg-primary-container transition-all shadow-lg shadow-primary/10 flex items-center justify-center gap-3">
+                        Complete Order
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<p class="text-center text-[10px] text-on-surface-variant mt-6 uppercase tracking-widest">By clicking "Complete Order", you agree to our Terms of Service</p>
+</div>
+</div>
+<!-- Order Summary Sticky Sidebar -->
+<div class="lg:w-[400px]">
+<div class="sticky top-32 p-8 bg-surface-container-low rounded-2xl space-y-8">
+<h3 class="text-xl font-serif border-b border-outline-variant/20 pb-4">Order Summary</h3>
+<div class="space-y-6">
+<!-- Product Item -->
+<div class="flex gap-4">
+<div class="w-20 h-24 bg-surface-container rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Product" class="w-full h-full object-cover" data-alt="Close-up of a high-end textured white linen shirt with mother of pearl buttons and delicate stitching details" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcsCUqaEkbvnCnw9L04QuA40ygFIchWFu524uSUm3QUQDGxXySUBynnycnqa_pFrSwIe_ITEKr9qft-QZZsw0VnPPA_aEGT1-KxhCC5qFf1G2i8GcBdzZjJSeIbC0Pt1hVmNXTxfwKGGg9owfd1Wnq8ies0WzipTQULtRW59eIl9dKld52EklbFTQVmMabXdDUZt8chb9TizuFMATyAmwsr3PIwjJ4JQIDFpM9j4RIqpyRHCKn8YWteNwEtWltpZzHMiZMpA8PDS6h"/>
+</div>
+<div class="flex flex-col justify-center">
+<p class="font-serif text-sm">Artisan Linen Shirt</p>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest mt-1">Ivory / Medium</p>
+<p class="text-sm mt-2 font-medium">$245.00</p>
+</div>
+</div>
+<!-- Product Item -->
+<div class="flex gap-4">
+<div class="w-20 h-24 bg-surface-container rounded-lg overflow-hidden flex-shrink-0">
+<img alt="Product" class="w-full h-full object-cover" data-alt="Elegant tailored wool trousers in deep charcoal gray draped softly on a minimalist hanger against a beige wall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbblieHLbwLADdhdNdgXKGQWhFsNiTfT03B5P6TSWAqmIHg0xBddJhjNwIm-RR38IOfnlLKyKB4J0hZdmshicoMSOn-1bF-7XRDUL7KFoNUUvZAni6XOyIMizZgv4im9azBB9Ap7BEP2_7dIk1RAZOMblPPJWdwDL0_GYchQH41lpUoMCUVDBxVSzjhv-uV4Jk1y1wtAoL2h4fG_SBD3pmPCokBp6Vl-_4L47D6Ve2PcqyrB_v55j49waDI-42dg4IJifsOZkLSq9h"/>
+</div>
+<div class="flex flex-col justify-center">
+<p class="font-serif text-sm">Tailored Wool Trousers</p>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest mt-1">Charcoal / 32</p>
+<p class="text-sm mt-2 font-medium">$380.00</p>
+</div>
+</div>
+</div>
+<div class="space-y-3 pt-6 border-t border-outline-variant/20">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Subtotal</span>
+<span>$625.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Shipping</span>
+<span>$12.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Estimated Tax</span>
+<span>$50.00</span>
+</div>
+<div class="flex justify-between text-lg font-serif pt-4">
+<span>Total</span>
+<span class="text-primary">$687.00</span>
+</div>
+</div>
+<div class="pt-8 space-y-4">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+<span class="text-[10px] uppercase tracking-widest font-medium">SSL Secure Encryption</span>
+</div>
+<div class="flex gap-4 opacity-50 grayscale transition-all hover:grayscale-0">
+<img alt="Paypal" class="h-4" data-alt="Blue and light blue PayPal logo on a transparent background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArHA60Kgr_rvV0FeDh7QYSOyxwkc5NbtiCmhQtSBIaiHQmB-4AYYbLvdGZo22yJZMJIFI_4-o5RnJz8rREifR_ngkdt4C-pLzBSwJDT9zIx2a6qTUkjoQsLAXt3v6gCRSExzQPjfn3zZbAA0S8Wt-JnMmhXSio5HJyq7Sy8KrnSmt1qN3NcAeXrIornRRwDRJuNWKR0CiomtDqZhEH_a1V7_QBxceb6og_qxssFc6_RRp3aZ6hd75WysD3u1RreqlYbIq6jDyFqldR"/>
+<img alt="Visa" class="h-4" data-alt="Classic blue and yellow Visa logo icon for payment processing" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr4oZDHTvTXWXFRjkBKan9ARbNJJt9eE-89b94TeXxCfYR0w49dypA-XKssRmbR4qtZfnQPyjICNz_IW9LTXk_ecqdaLZozp-IVfDV20wc_rVRE2nfZ2fU_BRVsnurhfNgPz6s52V2J_GCgLPLY49IshIyJmMZc7QzelMBwDaXBG1gLQQiXkSfDtecL5LKc7UIfU5n1EGJTZp4xOEXGWx-7uvtmyWdUTw_d3JKC0umZIIRPqj4TuRSM8g-Vvpxdb2qQLgTeBpgZ5Dn"/>
+<img alt="Mastercard" class="h-4" data-alt="Red and orange interlocking circles of the Mastercard corporate logo" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvN1et19VhdLi5Bky0iwR90b6RR8wiRkTjtw-Q7JawSqD6gFIGlaesVfpP4kgfuItYJPtHJ1FBT9jBRMJSOSyBQ7uSU-nXisS3qxmrNm9_8-D2yYplK0axkapyolO8c2ajpZIs0mF-8nNqgjF0qYhd6m7l7z5zbSt97wXidN1iR2XIq3LnVujXeAj7a95Tw04zebvwSOEzQu8zcr_QYOE7dIEToPxEGIMEibAaZu3pK4SkBLHgVbb-LS9OtvS5N-uJ30b-OuHXAJAJ"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-stone-100 dark:bg-stone-900 border-t border-stone-200/20">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 w-full max-w-screen-2xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-xl font-serif tracking-widest text-stone-900 dark:text-stone-100 mb-4">
+                    VÕ DUY BÌNH
+                </div>
+<p class="text-xs tracking-wider text-stone-500 font-label">Curating the essence of modern luxury and timeless craftsmanship for the discerning individual.</p>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-red-900 dark:text-red-500 text-xs font-label font-bold uppercase tracking-[0.2em] mb-2">Shop</h4>
+<a class="text-stone-500 dark:text-stone-400 text-xs tracking-wider hover:text-red-900 transition-colors" href="#">Collection</a>
+<a class="text-stone-500 dark:text-stone-400 text-xs tracking-wider hover:text-red-900 transition-colors" href="#">New Arrivals</a>
+<a class="text-stone-500 dark:text-stone-400 text-xs tracking-wider hover:text-red-900 transition-colors" href="#">About</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-red-900 dark:text-red-500 text-xs font-label font-bold uppercase tracking-[0.2em] mb-2">Customer Care</h4>
+<a class="text-stone-500 dark:text-stone-400 text-xs tracking-wider hover:text-red-900 transition-colors" href="#">Shipping</a>
+<a class="text-stone-500 dark:text-stone-400 text-xs tracking-wider hover:text-red-900 transition-colors" href="#">Returns</a>
+<a class="text-stone-500 dark:text-stone-400 text-xs tracking-wider hover:text-red-900 transition-colors" href="#">Contact</a>
+</div>
+<div class="flex flex-col gap-3">
+<h4 class="text-red-900 dark:text-red-500 text-xs font-label font-bold uppercase tracking-[0.2em] mb-2">Legal</h4>
+<a class="text-stone-500 dark:text-stone-400 text-xs tracking-wider hover:text-red-900 transition-colors" href="#">Privacy Policy</a>
+<p class="text-stone-400 dark:text-stone-600 text-[10px] tracking-widest mt-4">© 2024 VÕ DUY BÌNH. ALL RIGHTS RESERVED.</p>
+</div>
+</div>
+</footer>
+</body></html>

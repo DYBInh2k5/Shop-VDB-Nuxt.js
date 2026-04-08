@@ -1,132 +1,75 @@
-
-
 <template>
-  <div class="space-y-16">
-    <!-- Header -->
-    <div class="text-center">
-      <h1 class="text-5xl font-bold text-gray-900 mb-4">ℹ️ Về VÕ DUY BÌNH</h1>
-      <p class="text-xl text-gray-600 max-w-2xl mx-auto">Tìm hiểu thêm về câu chuyện, sứ mệnh và giá trị của chúng tôi</p>
-    </div>
+  <div class="space-y-16 pb-16 pt-2">
+    <section class="space-y-6">
+      <div class="relative overflow-hidden rounded-[0.75rem] bg-[color:var(--surface-muted)]">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoZp2EXJRX4KynAh7kE3_eCAF2KGCg6yVrIX8k4PShQWA8pTimBGIYv66yLio5Poctfcsa0D4mUOXy4eh-wEb28qP5FWzUIkVT8CwgBbY4Snj9nDzVu5aKlCndpUAiyGdec0lg5Acobc17dN1tq_zVsOPmOe6YVP6APT0IS_ruoBLArrD8eTJ7fUTTWSen60v9SJHUeL-wdUqwFJ0jAlnphpXZVPQ95K3S_El6cLF2vlovh3Y8CQ9d3EG9DPpuqLbeBjKMpMGezDHC" class="h-[320px] w-full object-cover sm:h-[420px]" alt="Atelier" />
+        <div class="absolute inset-0 bg-gradient-to-r from-black/35 via-black/10 to-transparent"></div>
+        <div class="absolute left-6 top-6 text-white sm:left-10 sm:top-10">
+          <div class="heading-serif text-lg uppercase tracking-[0.35em]">VÕ DUY BÌNH</div>
+          <h1 class="mt-6 max-w-xl heading-serif text-4xl leading-tight sm:text-6xl">Nghệ thuật của sự tĩnh lặng.</h1>
+        </div>
+      </div>
+      <p class="max-w-3xl text-sm leading-7 text-[color:var(--text-soft)] sm:text-base">From a small atelier to a refined fashion house, VO DUY BINH brings modern minimalism together with Vietnamese craft.</p>
+    </section>
 
-    <!-- Story Section -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-      <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-12 h-80 flex items-center justify-center">
-        <div class="text-7xl">📖</div>
+    <section class="grid gap-6 lg:grid-cols-[420px,1fr] lg:items-center">
+      <div class="overflow-hidden rounded-[0.75rem] bg-[color:var(--surface-muted)] p-0">
+        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop" class="h-[420px] w-full object-cover" alt="Craft" />
       </div>
       <div>
-        <h2 class="text-3xl font-bold mb-6 text-gray-900">Chúng Tôi Là Ai?</h2>
-        <p class="text-lg text-gray-700 leading-relaxed mb-4">
-          VÕ DUY BÌNH là một cửa hàng trực tuyến cung cấp các sản phẩm chất lượng cao, hướng đến trải nghiệm khách hàng tận tâm và đáng tin cậy.
-        </p>
-        <p class="text-lg text-gray-700 leading-relaxed mb-4">
-          Chúng tôi cam kết mang đến trải nghiệm mua sắm tuyệt vời với dịch vụ giao hàng nhanh, thanh toán an toàn và hỗ trợ khách hàng 24/7.
-        </p>
-        <p class="text-lg text-gray-700 leading-relaxed">
-          Với hơn 10,000 sản phẩm và 50,000 khách hàng hài lòng, chúng tôi tự hào là lựa chọn hàng đầu của người tiêu dùng Việt.
-        </p>
+        <p class="section-label mb-4">Câu chuyện của chúng tôi</p>
+        <h2 class="heading-serif text-4xl sm:text-5xl">Chúng tôi tạo ra những món đồ để mặc lâu dài, không phải theo mùa.</h2>
+        <p class="mt-5 max-w-2xl text-sm leading-7 text-[color:var(--text-soft)] sm:text-base">Each piece is built with attention to silhouette, texture, and longevity. Breathable fabrics and clean finishes keep the collection timeless, while every detail is handled with quiet precision.</p>
       </div>
-    </div>
+    </section>
 
-    <!-- Mission & Vision -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-12 shadow-lg hover:shadow-xl transition">
-        <div class="text-5xl mb-4">🎯</div>
-        <h3 class="text-2xl font-bold mb-4 text-gray-900">Sứ Mệnh</h3>
-        <p class="text-gray-700 leading-relaxed">
-          Cung cấp các sản phẩm chất lượng cao với giá hợp lý, dịch vụ giao hàng nhanh chóng, thanh toán an toàn và hỗ trợ khách hàng xuất sắc.
-        </p>
-      </div>
-      <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-12 shadow-lg hover:shadow-xl transition">
-        <div class="text-5xl mb-4">👁️</div>
-        <h3 class="text-2xl font-bold mb-4 text-gray-900">Tầm Nhìn</h3>
-        <p class="text-gray-700 leading-relaxed">
-          Trở thành nền tảng thương mại điện tử uy tín và lớn nhất tại Việt Nam, phục vụ hàng triệu khách hàng trên toàn quốc.
-        </p>
-      </div>
-    </div>
+    <section class="grid gap-6 md:grid-cols-3">
+      <article class="rounded-[0.75rem] border border-[color:var(--line)] bg-[color:var(--surface)] p-6">
+        <p class="section-label mb-3">Craft</p>
+        <h3 class="heading-serif text-2xl">Carefully made</h3>
+        <p class="mt-3 text-sm leading-7 text-[color:var(--text-soft)]">Each piece is built with attention to silhouette, texture, and longevity.</p>
+      </article>
+      <article class="rounded-[0.75rem] border border-[color:var(--line)] bg-[color:var(--surface)] p-6">
+        <p class="section-label mb-3">Materials</p>
+        <h3 class="heading-serif text-2xl">Natural feel</h3>
+        <p class="mt-3 text-sm leading-7 text-[color:var(--text-soft)]">Breathable fabrics and clean finishes keep the collection timeless.</p>
+      </article>
+      <article class="rounded-[0.75rem] border border-[color:var(--line)] bg-[color:var(--surface)] p-6">
+        <p class="section-label mb-3">Service</p>
+        <h3 class="heading-serif text-2xl">Quiet confidence</h3>
+        <p class="mt-3 text-sm leading-7 text-[color:var(--text-soft)]">Fast support, clean checkout, and a premium digital experience from start to finish.</p>
+      </article>
+    </section>
 
-    <!-- Why Choose Us -->
-    <div>
-      <h2 class="text-3xl font-bold text-center mb-12 text-gray-900">Tại Sao Chọn Chúng Tôi?</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-white rounded-xl shadow-md p-8 hover:shadow-lg hover:scale-105 transition text-center group">
-          <div class="text-5xl mb-4 transform group-hover:scale-110 transition">✓</div>
-          <h3 class="text-lg font-bold mb-2 text-gray-900">Sản phẩm chất lượng</h3>
-          <p class="text-gray-600">Tất cả sản phẩm được kiểm tra kỹ lưỡng</p>
-        </div>
-        <div class="bg-white rounded-xl shadow-md p-8 hover:shadow-lg hover:scale-105 transition text-center group">
-          <div class="text-5xl mb-4 transform group-hover:scale-110 transition">🚚</div>
-          <h3 class="text-lg font-bold mb-2 text-gray-900">Giao hàng nhanh</h3>
-          <p class="text-gray-600">Miễn phí giao hàng trên 500k</p>
-        </div>
-        <div class="bg-white rounded-xl shadow-md p-8 hover:shadow-lg hover:scale-105 transition text-center group">
-          <div class="text-5xl mb-4 transform group-hover:scale-110 transition">💰</div>
-          <h3 class="text-lg font-bold mb-2 text-gray-900">Giá tốt nhất</h3>
-          <p class="text-gray-600">Cạnh tranh giá với các shop khác</p>
-        </div>
-        <div class="bg-white rounded-xl shadow-md p-8 hover:shadow-lg hover:scale-105 transition text-center group">
-          <div class="text-5xl mb-4 transform group-hover:scale-110 transition">🛡️</div>
-          <h3 class="text-lg font-bold mb-2 text-gray-900">An toàn</h3>
-          <p class="text-gray-600">Thanh toán bảo mật 100%</p>
-        </div>
-      </div>
-    </div>
+    <section class="grid gap-6 md:grid-cols-4">
+      <article v-for="stat in stats" :key="stat.label" class="rounded-[0.75rem] border border-[color:var(--line)] bg-[color:var(--surface)] p-6 text-center">
+        <p class="heading-serif text-4xl text-[color:var(--primary)]">{{ stat.value }}</p>
+        <p class="mt-3 text-[10px] uppercase tracking-[0.24em] text-[color:var(--text-soft)]">{{ stat.label }}</p>
+      </article>
+    </section>
 
-    <!-- Values -->
-    <div class="bg-gradient-to-r from-red-500 to-red-600 rounded-2xl p-12 text-white text-center">
-      <h2 class="text-3xl font-bold mb-6">Giá Trị Cốt Lõi Của Chúng Tôi</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
-          <div class="text-4xl mb-3">❤️</div>
-          <h3 class="font-bold text-lg mb-2">Khách Hàng Là Ưu Tiên</h3>
-          <p>Chúng tôi luôn đặt nhu cầu của khách hàng lên hàng đầu</p>
-        </div>
-        <div>
-          <div class="text-4xl mb-3">🚀</div>
-          <h3 class="font-bold text-lg mb-2">Chất Lượng & Hiệu Suất</h3>
-          <p>Nâng cao chất lượng sản phẩm và dịch vụ liên tục</p>
-        </div>
-        <div>
-          <div class="text-4xl mb-3">🤝</div>
-          <h3 class="font-bold text-lg mb-2">Tin Tưởng & Minh Bạch</h3>
-          <p>Kinh doanh với tính trung thực và minh bạch</p>
+    <section class="grid gap-6 lg:grid-cols-[1fr,420px] lg:items-center">
+      <div class="overflow-hidden rounded-[0.75rem] bg-[color:var(--surface-muted)]">
+        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1200&auto=format&fit=crop" class="h-[320px] w-full object-cover" alt="Founder" />
+      </div>
+      <div>
+        <p class="section-label mb-4">Our Philosophy</p>
+        <blockquote class="heading-serif text-3xl leading-tight sm:text-4xl">Thiết kế đẹp nhất là thiết kế khiến người mặc cảm thấy tự tin mà không cần lên tiếng.</blockquote>
+        <p class="mt-4 text-sm uppercase tracking-[0.24em] text-[color:var(--text-soft)]">Võ Duy Binh, Creative Director</p>
+        <div class="mt-8 flex gap-3">
+          <NuxtLink to="/products" class="btn-primary">Shop Collection</NuxtLink>
+          <NuxtLink to="/users" class="btn-ghost">Community</NuxtLink>
         </div>
       </div>
-    </div>
-
-    <!-- Counter Demo -->
-    <div class="bg-white rounded-2xl shadow-lg p-12 text-center">
-      <h2 class="text-3xl font-bold mb-2 text-gray-900">🔢 Bộ Đếm Demo</h2>
-      <p class="text-gray-600 mb-8">Giá trị hiện tại: <span class="text-5xl font-bold text-red-600">{{ count }}</span></p>
-      <div class="flex justify-center gap-4 flex-wrap">
-        <button 
-          @click="increment"
-          class="btn-primary text-white font-bold py-3 px-8 rounded-lg transition transform hover:scale-105"
-        >
-          ➕ Tăng
-        </button>
-        <button 
-          @click="decrement"
-          class="btn-primary text-white font-bold py-3 px-8 rounded-lg transition transform hover:scale-105"
-        >
-          ➖ Giảm
-        </button>
-        <button 
-          @click="reset"
-          class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg transition transform hover:scale-105"
-        >
-          🔄 Reset
-        </button>
-      </div>
-    </div>
+    </section>
   </div>
 </template>
 
 <script setup>
-import useCounter from '../composables/useCounter'
-const { count, increment, decrement, reset } = useCounter()
+const stats = [
+  { value: '01', label: 'Atelier' },
+  { value: '02', label: 'Collections' },
+  { value: '03', label: 'Craftsmen' },
+  { value: '04', label: 'Countries' },
+]
 </script>
-
-
-
-<!-- about.vue: Trang giới thiệu. -->

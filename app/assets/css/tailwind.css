@@ -1,128 +1,154 @@
-@tailwind base;
+﻿@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Project global styles and tiny component utilities to improve visuals */
 @layer base {
-	:root {
-		/* Light red theme variables (adjust here for global palette) */
-		--brand-from: #ef4444; /* red-500 */
-		--brand-via: #f87171;  /* red-400 (softer) */
-		--brand-to:   #ffdede; /* very light red tint */
+  :root {
+    --background: #fbf9f4;
+    --surface: #fffdf8;
+    --surface-muted: #f1ece5;
+    --surface-strong: #e6ddd3;
+    --text: #1b1c19;
+    --text-soft: #6a655d;
+    --primary: #610000;
+    --primary-strong: #8b0000;
+    --primary-soft: #ffb4a8;
+    --accent: #3c280d;
+    --line: rgba(97, 0, 0, 0.12);
+    --shadow-soft: 0 14px 36px rgba(43, 28, 18, 0.06);
+  }
 
-		--color-primary: #2b0b0b; /* dark text, warm tone */
-		--color-accent: var(--brand-from);
-		--bg-primary: #fff5f5; /* soft off-white with red tint */
-		--bg-elevated: #ffffff;
-		--muted: #6b6b6b;
+  html {
+    scroll-behavior: smooth;
+  }
 
-		--text-size-primary: 14px;
-		--text-size-medium: 18px;
-		--text-size-large: 22px;
-	}
+  body {
+    @apply antialiased;
+    font-family: 'Manrope', sans-serif;
+    color: var(--text);
+    background-color: var(--background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-	html, body {
-		@apply antialiased text-gray-800 bg-gradient-to-br from-slate-50 via-white to-slate-100;
-		font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-	}
+  h1,
+  h2,
+  h3,
+  h4,
+  .heading-serif,
+  .font-serif {
+    font-family: 'Noto Serif', serif;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+  }
 
-	/* Nice default for headings so pages look consistent */
-	h1, h2, h3, h4 {
-		letter-spacing: -0.01em;
-		line-height: 1.05;
-	}
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-	/* subtle link underline animation when using plain <a> tags */
-	a {
-		@apply text-primary-600;
-		text-decoration: none;
-	}
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  }
 }
 
 @layer components {
-	/* Reusable card */
-	.card {
-		@apply bg-white rounded-2xl shadow-md p-6 transition-transform duration-300 ease-in-out;
-	}
+  .page-shell {
+    width: 100%;
+    max-width: 1320px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
-	/* Softer shadow utility */
-	.shadow-soft {
-		box-shadow: 0 8px 30px rgba(16,24,40,0.06);
-	}
+  @media (min-width: 640px) {
+    .page-shell {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
 
-	/* Primary CTA button */
-	.btn-primary {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.5rem;
-		color: white;
-		font-weight: 600;
-		padding: 0.75rem 1.25rem;
-		border-radius: 0.75rem;
-		box-shadow: 0 10px 20px rgba(239,68,68,0.12);
-		transition: transform .18s ease, box-shadow .18s ease;
-		background-image: linear-gradient(90deg, var(--brand-from), var(--brand-via), var(--brand-to));
-	}
+  @media (min-width: 1024px) {
+    .page-shell {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
 
-	.btn-primary:hover { transform: translateY(-2px) scale(1.02); }
+  .card {
+    background: rgba(255, 253, 248, 0.92);
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+  }
 
-	.btn-ghost {
-		@apply inline-flex items-center justify-center gap-2 bg-white/60 text-gray-800 py-2 px-4 rounded-lg border border-gray-200 hover:bg-white;
-	}
+  .section-label {
+    @apply text-[10px] font-semibold uppercase tracking-[0.32em];
+    color: var(--primary);
+  }
 
-	/* Glassmorphism panel used in header and hero accents */
-	.glass {
-		background-color: rgba(255,255,255,0.6);
-		backdrop-filter: blur(8px);
-		-webkit-backdrop-filter: blur(8px);
-		border: 1px solid rgba(255,255,255,0.4);
-	}
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.22em] transition duration-300;
+    background: var(--primary);
+    color: #fff7f1;
+  }
 
-	/* Gradient heading utility */
-	.heading-gradient {
-		background-image: linear-gradient(90deg, var(--brand-from), var(--brand-via), var(--brand-to));
-		-webkit-background-clip: text;
-		background-clip: text;
-		color: transparent;
-	}
+  .btn-primary:hover {
+    background: var(--primary-strong);
+  }
 
-	/* subtle animated shimmer for hero accents */
-	.shimmer {
-		position: relative;
-		overflow: hidden;
-	}
-	.shimmer::after {
-		content: '';
-		position: absolute;
-		top: -40%;
-		left: -40%;
-		width: 180%;
-		height: 180%;
-		background: linear-gradient(120deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.06) 100%);
-		transform: rotate(25deg) translateX(-100%);
-		animation: shimmer 6s linear infinite;
-	}
-	@keyframes shimmer {
-		0% { transform: rotate(25deg) translateX(-100%); }
-		100% { transform: rotate(25deg) translateX(100%); }
-	}
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm px-6 py-3 text-[12px] font-semibold uppercase tracking-[0.22em] transition;
+    background: transparent;
+    border: 1px solid rgba(97, 0, 0, 0.12);
+    color: var(--text);
+  }
 
-	/* Tiny badge for counts */
-	.badge-pill {
-		@apply inline-flex items-center justify-center rounded-full bg-red-500 text-white text-xs font-bold px-2 py-0.5;
-	}
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.72);
+  }
 
-	/* Focus styles for accessibility */
-	.focus-ring:focus {
-		outline: 3px solid rgba(239,68,68,0.15);
-		outline-offset: 3px;
-	}
+  .input-luxe {
+    @apply w-full rounded-sm px-4 py-3 outline-none transition;
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(97, 0, 0, 0.08);
+  }
+
+  .input-luxe:focus {
+    border-color: rgba(97, 0, 0, 0.25);
+    box-shadow: 0 0 0 3px rgba(97, 0, 0, 0.06);
+  }
+
+  .badge-pill {
+    @apply inline-flex items-center justify-center rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.24em];
+    background: rgba(255, 255, 255, 0.92);
+    color: var(--primary);
+    border: 1px solid rgba(97, 0, 0, 0.08);
+  }
+
+  .lux-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(97, 0, 0, 0.18), transparent);
+  }
 }
 
-/* Scrollbar tweaks for modern browsers (light-red theme) */
-::-webkit-scrollbar { width: 10px; height: 10px; }
-::-webkit-scrollbar-thumb { background: linear-gradient(180deg, rgba(239,68,68,0.25), rgba(248,113,113,0.25)); border-radius: 9999px; }
-::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(97, 0, 0, 0.28), rgba(184, 138, 82, 0.24));
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}

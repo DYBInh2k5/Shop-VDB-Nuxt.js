@@ -1,102 +1,86 @@
 <template>
-  <div class="space-y-8">
-    <div class="flex items-center justify-between mb-8">
-      <div>
-        <h1 class="text-5xl font-bold text-gray-900">🛒 Giỏ Hàng Của Bạn</h1>
-        <p class="text-gray-600 mt-2">{{ cart.items.length }} sản phẩm</p>
-      </div>
-      <div class="bg-gradient-to-br from-red-50 to-red-100 px-6 py-3 rounded-xl">
-        <p class="text-sm text-gray-600">Tổng giá trị</p>
-        <p class="text-3xl font-bold text-red-600">${{ cart.totalPrice.toFixed(2) }}</p>
-      </div>
+  <div class="space-y-8 pb-16 pt-2">
+    <header class="space-y-2">
+      <p class="text-[10px] uppercase tracking-[0.32em] text-[color:var(--text-soft)]">Your Selection</p>
+      <h1 class="heading-serif text-5xl leading-tight sm:text-6xl">Shopping Cart</h1>
+    </header>
+
+    <div v-if="cart.items.length === 0" class="rounded-[0.75rem] border border-[color:var(--line)] bg-[color:var(--surface)] p-10 text-center sm:p-16">
+      <p class="heading-serif text-3xl">Your cart is empty</p>
+      <p class="mx-auto mt-4 max-w-lg text-sm leading-7 text-[color:var(--text-soft)]">It looks like you haven't made your choice yet. Explore our latest collections to find something exceptional.</p>
+      <NuxtLink to="/products" class="btn-primary mt-8">Continue shopping</NuxtLink>
     </div>
 
-    <!-- Empty Cart State -->
-    <div v-if="cart.items.length === 0" class="card text-center p-16">
-      <div class="text-8xl mb-6">🛒</div>
-      <h2 class="text-3xl font-bold mb-3 text-gray-900">Giỏ Hàng Của Bạn Trống</h2>
-      <p class="text-gray-600 mb-8 text-lg">Hãy thêm một số sản phẩm để bắt đầu mua sắm</p>
-      <NuxtLink to="/products" class="btn-primary inline-flex items-center gap-2 text-lg">
-        ← Quay lại cửa hàng
-      </NuxtLink>
-    </div>
-
-    <!-- Cart Items -->
-    <div v-else class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-      <!-- Items List -->
-      <div class="lg:col-span-2 space-y-4">
-        <div
-          v-for="item in cart.items"
-          :key="item.id"
-          class="card flex gap-6 items-center"
-        >
-          <img 
-            v-if="item.image" 
-            :src="item.image" 
-            :alt="item.title" 
-            class="w-28 h-28 object-contain rounded-lg shadow-md bg-white p-2" 
-          />
-          <div class="flex-1">
-            <h3 class="font-bold text-lg mb-2 text-gray-900">{{ item.title }}</h3>
-            <p class="text-sm text-gray-600 line-clamp-2 mb-4">{{ item.description }}</p>
-            <div class="flex justify-between items-center">
-              <div class="flex items-center gap-4">
-                <span class="text-gray-600 font-semibold">Giá:</span>
-                <span class="text-2xl font-bold text-red-600">${{ item.price.toFixed(2) }}</span>
-              </div>
-              <div class="flex items-center gap-3">
-                <div class="bg-gray-100 px-4 py-2 rounded-lg font-bold text-lg">
-                  x{{ item.quantity }}
+    <div v-else class="grid gap-12 lg:grid-cols-[1fr,400px] lg:items-start">
+      <div class="space-y-12">
+        <article v-for="item in cart.items" :key="item.id" class="group flex flex-col gap-6 border-b border-[color:var(--line)] pb-12 md:flex-row">
+          <div class="w-full md:w-48 aspect-[3/4] overflow-hidden rounded-[0.75rem] bg-[color:var(--surface-muted)] flex-shrink-0">
+            <img :src="item.image" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" :alt="item.title" />
+          </div>
+          <div class="flex-1 flex flex-col justify-between py-1">
+            <div class="flex justify-between items-start gap-6">
+              <div>
+                <h2 class="heading-serif text-2xl sm:text-3xl">{{ item.title }}</h2>
+                <p class="text-sm text-[color:var(--text-soft)] mt-3">Item No. VDB-2024-0{{ item.id }}</p>
+                <div class="mt-4 space-y-1 text-sm text-[color:var(--text-soft)]">
+                  <p><span class="font-medium text-[color:var(--text)]">Color:</span> {{ item.color || 'Default' }}</p>
+                  <p><span class="font-medium text-[color:var(--text)]">Size:</span> {{ item.size || 'M' }}</p>
                 </div>
-                <span class="font-bold text-lg text-gray-900">${{ (item.price * item.quantity).toFixed(2) }}</span>
-                <button 
-                  @click="cart.removeFromCart(item.id)" 
-                  class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition font-bold ml-2"
-                >
-                  🗑️
-                </button>
               </div>
+              <p class="text-lg font-medium text-[color:var(--primary)]">{{ formatPrice(item.price * item.quantity) }}</p>
+            </div>
+            <div class="mt-8 flex items-end justify-between gap-4">
+              <div class="flex items-center rounded-xl border border-[color:var(--line)] bg-white/70 px-2 py-1">
+                <button class="p-2 transition hover:text-[color:var(--primary)]" @click="decrease(item)"><span class="material-symbols-outlined text-sm">remove</span></button>
+                <span class="px-4 text-sm font-medium">{{ item.quantity }}</span>
+                <button class="p-2 transition hover:text-[color:var(--primary)]" @click="increase(item)"><span class="material-symbols-outlined text-sm">add</span></button>
+              </div>
+              <button class="text-[10px] uppercase tracking-[0.24em] text-[color:var(--text-soft)] transition hover:text-[color:var(--primary)]" @click="cart.removeFromCart(item.id)">Remove</button>
             </div>
           </div>
-        </div>
+        </article>
       </div>
 
-      <!-- Summary Sidebar -->
-      <div class="lg:col-span-1">
-        <div class="card sticky top-24 p-6">
-          <h2 class="text-2xl font-bold mb-6 text-gray-900">Tóm Tắt Đơn Hàng</h2>
-          
-          <div class="space-y-4 mb-6 pb-6 border-b-2">
-            <div class="flex justify-between text-gray-700">
-              <span class="font-semibold">Tổng sản phẩm:</span>
-              <span class="font-bold">{{ cart.items.length }}</span>
+      <aside class="lg:sticky lg:top-28">
+        <div class="space-y-8 rounded-[0.75rem] bg-[color:var(--surface-muted)] p-8">
+          <h2 class="heading-serif text-2xl border-b border-[color:var(--line)] pb-4">Order Summary</h2>
+          <div class="space-y-4 text-sm">
+            <div class="flex justify-between">
+              <span class="text-[color:var(--text-soft)]">Subtotal</span>
+              <span>{{ formatPrice(cart.totalPrice) }}</span>
             </div>
-            <div class="flex justify-between text-gray-700">
-              <span class="font-semibold">Tổng số lượng:</span>
-              <span class="font-bold">{{ cart.items.reduce((sum, item) => sum + item.quantity, 0) }}</span>
+            <div class="flex justify-between">
+              <span class="text-[color:var(--text-soft)]">Shipping</span>
+              <span class="rounded bg-white px-2 py-0.5 text-[10px] uppercase tracking-[0.22em] text-[color:var(--text-soft)]">Calculated at next step</span>
             </div>
-            <div class="flex justify-between text-gray-700">
-              <span class="font-semibold">Tiền hàng:</span>
-              <span class="font-bold">${{ cart.totalPrice.toFixed(2) }}</span>
-            </div>
-            <div class="flex justify-between text-gray-700">
-              <span class="font-semibold">Phí vận chuyển:</span>
-              <span class="text-green-600 font-bold">Miễn phí</span>
+            <div class="flex justify-between">
+              <span class="text-[color:var(--text-soft)]">Tax (VAT 8%)</span>
+              <span>{{ formatPrice(cart.totalPrice * 0.08) }}</span>
             </div>
           </div>
-
-          <div class="flex justify-between mb-6 p-4 bg-gray-50 rounded-lg">
-            <span class="text-xl font-bold text-gray-900">Tổng cộng:</span>
-            <span class="text-3xl font-bold text-red-600">${{ cart.totalPrice.toFixed(2) }}</span>
+          <div class="lux-divider"></div>
+          <div class="flex items-baseline justify-between">
+            <span class="heading-serif text-xl">Total</span>
+            <span class="heading-serif text-3xl text-[color:var(--primary)]">{{ formatPrice(cart.totalPrice * 1.08) }}</span>
           </div>
-
-          <NuxtLink to="/checkout" class="btn-primary w-full mb-3 text-lg inline-flex items-center justify-center">✓ Thanh Toán</NuxtLink>
-
-          <button @click="cart.clearCart()" class="btn-ghost w-full mb-2">🗑️ Xóa Tất Cả</button>
-
-          <NuxtLink to="/products" class="block mt-4 text-center text-red-600 hover:text-red-700 font-semibold transition">← Tiếp tục mua sắm</NuxtLink>
+          <div>
+            <label class="mb-3 block text-[10px] uppercase tracking-[0.24em] text-[color:var(--text-soft)]">Discount Code</label>
+            <div class="flex gap-2">
+              <input class="input-luxe flex-1" placeholder="Enter code" type="text" />
+              <button class="rounded-xl border border-[color:var(--line)] bg-white/80 px-5 text-[10px] uppercase tracking-[0.22em]">Apply</button>
+            </div>
+          </div>
+          <NuxtLink to="/checkout" class="btn-primary w-full">Tiến hành thanh toán</NuxtLink>
+          <div class="space-y-3 text-xs text-[color:var(--text-soft)]">
+            <p class="flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">verified_user</span> Secure encrypted checkout</p>
+            <p class="flex items-center gap-3"><span class="material-symbols-outlined text-[18px]">local_shipping</span> Free shipping on orders over 10,000,000đ</p>
+          </div>
+          <NuxtLink to="/products" class="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.22em] text-[color:var(--text-soft)]">
+            <span class="material-symbols-outlined text-sm">arrow_back</span>
+            Quay lại mua sắm
+          </NuxtLink>
         </div>
-      </div>
+      </aside>
     </div>
   </div>
 </template>
@@ -105,4 +89,16 @@
 import { useCartStore } from '~/stores/useCartStore'
 
 const cart = useCartStore()
+
+function formatPrice(value) {
+  return `${Number(value).toLocaleString('vi-VN')}đ`
+}
+
+function increase(item) {
+  cart.updateQuantity(item.id, item.quantity + 1)
+}
+
+function decrease(item) {
+  cart.updateQuantity(item.id, item.quantity - 1)
+}
 </script>

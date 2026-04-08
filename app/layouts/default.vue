@@ -1,91 +1,53 @@
-<template>
-  <div class="flex flex-col min-h-screen bg-[var(--bg-primary,#fff)]">
-    <!-- Header -->
+﻿<template>
+  <div class="min-h-screen bg-[color:var(--background)] text-[color:var(--text)]">
     <Header />
 
-    <!-- Nội dung chính -->
-    <main class="flex-1 w-full">
-      <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16 py-12">
-        <NuxtPage />
+    <main class="pb-20 pt-6 lg:pt-8">
+      <div class="page-shell">
+        <slot />
       </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="mt-24 py-16 bg-[var(--color-primary)] text-white">
-      <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-16">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          <!-- Brand -->
+    <footer class="border-t border-[color:var(--line)] bg-[rgba(255,253,248,0.92)] py-14">
+      <div class="page-shell">
+        <div class="grid gap-10 md:grid-cols-4">
           <div>
-            <div class="flex items-center gap-3 mb-4">
-              <div class="w-11 h-11 rounded-lg flex items-center justify-center font-bold text-lg shadow-md" :style="{ background: 'linear-gradient(90deg,var(--brand-from),var(--brand-via))', color: 'white' }">VDB</div>
-              <h3 class="text-2xl font-bold heading-serif">VÕ DUY BÌNH</h3>
-            </div>
-            <p class="text-gray-300 text-base leading-relaxed">
-              Cửa hàng trực tuyến VÕ DUY BÌNH — cung cấp sản phẩm chất lượng với dịch vụ tận tâm.
+            <div class="heading-serif text-lg uppercase tracking-[0.35em]">VÕ DUY BÌNH</div>
+            <p class="mt-4 max-w-sm text-sm leading-7 text-[color:var(--text-soft)]">
+              Curated fashion essentials for the modern wardrobe with a focus on editorial aesthetics and subdued elegance.
             </p>
           </div>
-
-          <!-- Quick Links -->
           <div>
-            <h4 class="font-bold text-lg mb-4">Danh mục</h4>
-            <ul class="space-y-2">
-              <li><NuxtLink to="/" class="text-gray-300 hover:text-[var(--color-accent)] transition">Trang chủ</NuxtLink></li>
-              <li><NuxtLink to="/products" class="text-gray-300 hover:text-[var(--color-accent)] transition">Sản phẩm</NuxtLink></li>
-              <li><NuxtLink to="/users" class="text-gray-300 hover:text-[var(--color-accent)] transition">Người dùng</NuxtLink></li>
-              <li><NuxtLink to="/cart" class="text-gray-300 hover:text-[var(--color-accent)] transition">Giỏ hàng</NuxtLink></li>
-            </ul>
+            <div class="section-label">Shop</div>
+            <div class="mt-5 space-y-3 text-sm text-[color:var(--text-soft)]">
+              <NuxtLink to="/products">Collection</NuxtLink>
+              <NuxtLink to="/products-async">New Arrivals</NuxtLink>
+              <NuxtLink to="/cart">Cart</NuxtLink>
+              <NuxtLink to="/checkout">Checkout</NuxtLink>
+            </div>
           </div>
-
-          <!-- Support -->
           <div>
-            <h4 class="font-bold text-lg mb-4">Hỗ trợ</h4>
-            <ul class="space-y-2">
-              <li><a href="#" class="text-gray-300 hover:text-[var(--color-accent)] transition">Liên hệ</a></li>
-              <li><a href="#" class="text-gray-300 hover:text-[var(--color-accent)] transition">FAQ</a></li>
-              <li><a href="#" class="text-gray-300 hover:text-[var(--color-accent)] transition">Chính sách</a></li>
-              <li><a href="#" class="text-gray-300 hover:text-[var(--color-accent)] transition">Điều khoản</a></li>
-            </ul>
+            <div class="section-label">Customer Care</div>
+            <div class="mt-5 space-y-3 text-sm text-[color:var(--text-soft)]">
+              <NuxtLink to="/about">About</NuxtLink>
+              <NuxtLink to="/profile">Profile</NuxtLink>
+              <NuxtLink to="/users">Users</NuxtLink>
+            </div>
           </div>
-
-          <!-- Contact -->
           <div>
-            <h4 class="font-bold text-lg mb-4">Liên hệ</h4>
-            <ul class="space-y-3">
-              <li class="flex items-center gap-2">
-                <span :style="{ color: 'var(--color-accent)' }">📧</span>
-                <span class="text-gray-200">binh.vd01500@sinhvien.hoasen.edu.vn</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <span :style="{ color: 'var(--color-accent)' }">📱</span>
-                <span class="text-gray-200">1900-xxxx</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <span :style="{ color: 'var(--color-accent)' }">📍</span>
-                <span class="text-gray-200">Hà Nội, Việt Nam</span>
-              </li>
-            </ul>
+            <div class="section-label">Newsletter</div>
+            <div class="mt-5 flex gap-3">
+              <input class="input-luxe" placeholder="Email address" type="email" />
+              <button class="btn-primary !px-4">Subscribe</button>
+            </div>
+            <p class="mt-4 text-xs uppercase tracking-[0.24em] text-[color:var(--text-soft)]">
+              Crafted in Vietnam, shipped worldwide.
+            </p>
           </div>
         </div>
-
-        <!-- Divider -->
-        <div class="border-t border-gray-700 pt-8">
-          <div class="flex justify-center gap-6 mb-6">
-            <a href="#" class="w-10 h-10 rounded-lg flex items-center justify-center transition hover:scale-110 bg-[var(--color-accent)] text-[var(--color-primary)]">
-              <span class="font-bold">f</span>
-            </a>
-            <a href="#" class="w-10 h-10 rounded-lg flex items-center justify-center transition hover:scale-110 bg-[var(--color-accent)] text-[var(--color-primary)]">
-              <span class="font-bold">📷</span>
-            </a>
-            <a href="#" class="w-10 h-10 rounded-lg flex items-center justify-center transition hover:scale-110 bg-[var(--color-accent)] text-[var(--color-primary)]">
-              <span class="font-bold">𝕏</span>
-            </a>
-            <a href="#" class="w-10 h-10 rounded-lg flex items-center justify-center transition hover:scale-110 bg-[var(--color-accent)] text-[var(--color-primary)]">
-              <span class="font-bold">▶</span>
-            </a>
-          </div>
-          <div class="text-center text-gray-400 text-sm">
-            <p>&copy; 2025 VÕ DUY BÌNH. All rights reserved. | Designed with ❤️ by Your Team</p>
-          </div>
+        <div class="mt-12 flex flex-col gap-4 border-t border-[color:var(--line)] pt-6 text-xs uppercase tracking-[0.24em] text-[color:var(--text-soft)] sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2026 VÕ DUY BÌNH. All rights reserved.</p>
+          <p>Luxury tailoring · Quiet confidence · Modern heritage</p>
         </div>
       </div>
     </footer>
